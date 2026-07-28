@@ -1,0 +1,6 @@
+{
+  "name": "2FA Generate",
+  "description": "Generate secure real TOTP 2FA codes with encrypted local storage and live statistics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
