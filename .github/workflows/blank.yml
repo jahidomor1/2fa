@@ -1,4 +1,4 @@
-name: Build Web App to APK
+name: Build Web App Artifacts
 
 on:
   push:
@@ -11,29 +11,11 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
+    - name: Upload Web Files
+      uses: actions/upload-artifact@v4
       with:
-        node-version: 18
-
-    - name: Setup Java
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'zulu'
-        java-version: '17'
-
-    - name: Install Bubblewrap & Build APK
-      run: |
-        npm install -g @bubblewrap/cli
-        mkdir android-build
-        cd android-build
-        npx @bubblewrap/cli init --manifest=../manifest.json || true
-        
-    - name: Upload APK
-      uses: actions/upload-artifact@v3
-      with:
-        name: web-app-apk
-        path: ./**/*.apk
+        name: my-web-app
+        path: .
         
